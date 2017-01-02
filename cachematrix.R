@@ -5,10 +5,7 @@ makeCacheMatrix <- function(x = matrix()) {
 	i <- NULL
 	set <- function(y) {
 		x <<- y
-		i <<- NULL #inverse initialized to NULL
-		#NOTE: we could put i <<-solve(y) and the inverse will be cached
-		#when makeCacheMatrix is called. I will follow the makeVector
-		#example and wait until cacheSolve is called to cache the inverse.
+		i <<- NULL #inverse initialized to NULL. Necessary to clear cache when new matrix is created.
 	}
 	get <- function() x #returns matrix
 	setinverse <- function(inverse) i <<- inverse #sets inverse
